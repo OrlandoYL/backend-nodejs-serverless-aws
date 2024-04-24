@@ -8,10 +8,10 @@ module.exports = {
       '^.+\\.tsx?$': 'ts-jest',
     },
     moduleNameMapper: {
-        '^@libs/api-gateway$': '<rootDir>/src/libs/api-gateway.ts',
-        '^@libs/lambda$': '<rootDir>/src/libs/lambda.ts',
-        //'^@middy/core$': '<rootDir>/src/libs/lambda.ts',
-        '^@functions/persona/handler$': '<rootDir>/src/functions/persona/handler.ts',
-        '^src/(.*)$': '<rootDir>/src/$1',
+      '@functions/(.*)': '<rootDir>/src/functions/$1',
+      '@libs/(.*)': '<rootDir>/src/libs/$1',
+      '@model/(.*)': '<rootDir>/src/model/$1',
+      '@services/(.*)': '<rootDir>/src/services/$1',
+      '@tests/(.*)': '<rootDir>/src/tests/$1',
     },
 }

@@ -2,14 +2,14 @@ import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 import { formatJSONResponse } from '@libs/api-gateway';
 import { middyfy } from '@libs/lambda';
 import { v4 } from "uuid";
-import vehiculosService from '../../services'
-import { IntegrationService } from "src/services/integration";
-import { VehiculoRequest } from "src/model/request.vehiculo";
+import personasService from '../../services'
+import { IntegrationService } from "@services/integration";
+import { VehiculoRequest } from "@model/request.vehiculo";
 import moment from 'moment-timezone';
 
 
 export const getAllPersonas = middyfy(async (): Promise<APIGatewayProxyResult> => {
-    const personas = await vehiculosService.getAllPersonas();
+    const personas = await personasService.getAllPersonas();
     return formatJSONResponse ({
         personas
     })
@@ -36,14 +36,14 @@ export const createPersona= middyfy(async (event: APIGatewayProxyEvent): Promise
             requestBody = event.body;
         }
         //const modelPersona = requestBody as Persona;
-        const persona = await vehiculosService.createPersona({
+        const persona = await personasService.createPersona({
             id: id,
             nombres: requestBody.nombres,
             apellidos: requestBody.apellidos,
             genero:requestBody.genero,
             fnacimiento:requestBody.fnacimiento,
             creado: utcTime,
-            estado: false
+            estado: true
         })
         return formatJSONResponse({
             persona

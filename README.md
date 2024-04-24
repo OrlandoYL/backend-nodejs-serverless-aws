@@ -32,7 +32,7 @@ Dependiendo de su administrador de paquetes preferido, siga las instrucciones a 
 4. Perfil: una colección de configuraciones se denomina perfil. El nombre del perfil predeterminado es el predeterminado; sin embargo, puede crear un perfil nuevo mediante el comando aws configure --profile new_name.
 
 **Estos son los pasos para configurar AWS CLI en su terminal:**
-`aws configurar`
+`aws configure`
 
 ###
 
